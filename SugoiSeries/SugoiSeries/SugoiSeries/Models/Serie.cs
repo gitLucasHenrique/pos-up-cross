@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-
+using SugoiSeries.Infra;
 
 namespace SugoiSeries.Models
 {
@@ -18,6 +18,12 @@ namespace SugoiSeries.Models
         [JsonProperty("backdrop_path")]
         public string BackdropPath { get; set; }
 
+        [JsonIgnore]
+        public string Backdrop
+        {
+            get { return $"{AppSettings.ApiImageBaseUrl}{BackdropPath}"; }
+        }
+
         [JsonProperty("id")]
         public long Id { get; set; }
 
@@ -29,6 +35,12 @@ namespace SugoiSeries.Models
 
         [JsonProperty("poster_path")]
         public string PosterPath { get; set; }
+
+        [JsonIgnore]
+        public string Poster
+        {
+            get { return $"{AppSettings.ApiImageBaseUrl}{PosterPath}"; }
+        }
 
         [JsonIgnore]
         public string ReleaseDate { get { return $"{FirstAirDate:dd/MM/yy}"; } }

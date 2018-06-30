@@ -64,8 +64,8 @@ namespace SugoiSeries.ViewModel
             Name = serie.OriginalName;
             Overview = serie.Overview;
 
-            Poster = serie.PosterPath;
-            BackDrop = serie.BackdropPath;
+            Poster = serie.Poster;
+            BackDrop = serie.Backdrop;
             ReleaseDate = serie.ReleaseDate;
 
             Votes = serie.VoteAverage;
