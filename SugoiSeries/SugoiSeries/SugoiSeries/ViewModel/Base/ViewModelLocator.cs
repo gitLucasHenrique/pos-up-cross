@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using Autofac;
+using Refit;
+using SugoiSeries.Infra;
+using SugoiSeries.Infra.API;
+using SugoiSeries.Infra.HttpTools;
+using SugoiSeries.Services;
+using SugoiSeries.Services.Navigation;
 
 namespace SugoiSeries.ViewModel.Base
 {
@@ -19,6 +26,20 @@ namespace SugoiSeries.ViewModel.Base
             public ViewModelLocator()
             {
                 _containerBuilder = new ContainerBuilder();
+                _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+            _containerBuilder.RegisterType<SerieService>().As<ISerieService>();
+                _containerBuilder.RegisterType<MainViewModel>();
+                _containerBuilder.RegisterType<DetailViewModel>();
+            _containerBuilder.Register(ApplicationId =>
+            {
+                var client = new HttpClient(new HttpLoggingHandler())
+                {
+                    BaseAddress = new Uri(AppSettings.ApiUrl),
+                    Timeout = TimeSpan.FromSeconds(90)
+                };
+                return RestService.For<ITmdbApi>(client);
+            }).As<ITmdbApi>().InstancePerDependency();
+                
             }
 
         public T Resolve<T>() => _container.Resolve<T>();
