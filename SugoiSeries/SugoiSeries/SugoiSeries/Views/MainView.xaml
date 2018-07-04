@@ -5,21 +5,18 @@
              Title="{Binding Title}"
              xmlns:behaviors="clr-namespace:SugoiSeries.Behaviors;assembly=SugoiSeries"
              BackgroundColor="Black">
-    
+
     <ContentPage.Content>
         <Grid VerticalOptions="FillAndExpand"
               HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ListView
-
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             HasUnevenRows="True"
@@ -49,10 +46,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
             </ListView>
         </Grid>
-        
     </ContentPage.Content>
-
 </ContentPage>

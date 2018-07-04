@@ -10,17 +10,13 @@
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="Black">
-            <Image  Source="{Binding Poster}"
+            <Image  Source="{Binding BackDrop}"
                         VerticalOptions="Center"
-                        HorizontalOptions="Center"
-                        HeightRequest="300"/>
+                    HeightRequest="200"
+                        HorizontalOptions="FillAndExpand"/>
             <StackLayout>
                 <Label Text="{Binding Name, StringFormat='Nome Original: {0:N}'}" FontSize="Medium" BackgroundColor="DimGray" FontAttributes="Bold"/>
-            </StackLayout>
-            <StackLayout>
                 <Label Text="{Binding ReleaseDate, StringFormat='Data de Lançamento: {0:N}'}" FontSize="Medium" BackgroundColor="DimGray"/>
-            </StackLayout>
-            <StackLayout>
                 <Label Text="{Binding Overview, StringFormat='Descrição: {0:N}'}" FontSize="Small" BackgroundColor="DimGray" FontAttributes="Italic"/>
             </StackLayout>
 
