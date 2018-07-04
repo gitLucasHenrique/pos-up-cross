@@ -3,36 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SugoiSeries.Views.MainView"
              Title="{Binding Title}"
-             xmlns:behaviors="clr-namespace:SugoiSeries.Behaviors;assembly=SugoiSeries">
+             xmlns:behaviors="clr-namespace:SugoiSeries.Behaviors;assembly=SugoiSeries"
+             BackgroundColor="Black">
+    
     <ContentPage.Content>
-        <ListView
+        <Grid VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListView
+
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             HasUnevenRows="True"
-            SeparatorColor="DarkGreen"
+            SeparatorVisibility="None"
             CachingStrategy="RecycleElement"
             ItemsSource="{Binding Items}"
-            behaviors:AttachedItemTappedBehavior.Command="{Binding ItemClickCommand}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout
+            behaviors:AttachedItemTappedBehavior.Command="{Binding ItemClickCommand}"
+                Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Margin="10"
+                                BackgroundColor="DimGray"
                             Orientation="Horizontal"
                             VerticalOptions="FillAndExpand"
                             HorizontalOptions="FillAndExpand">
-                            <Image Source="{Binding Poster}"
+                                <Image Source="{Binding Poster}"
                                    VerticalOptions="Start"
                                    HorizontalOptions="Start"
                                    HeightRequest="120"/>
-                            <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="Medium"/>
-                                <Label Text="{Binding OriginalName}" FontSize="Small"/>
+                                <!--<StackLayout>-->
+                                <Label Text="{Binding Name, StringFormat='Série: {0:N}'}" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="WhiteSmoke" FontAttributes="Bold"/>
+                                <!--<Label Text="{Binding OriginalName}" FontSize="Small"/>-->
+                                <!--</StackLayout>-->
                             </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </Grid>
+        
     </ContentPage.Content>
+
 </ContentPage>

@@ -90,7 +90,10 @@ namespace SugoiSeries.Services.Navigation
             }
             else
             {
-                CurrentApplication.MainPage = new NavigationPage(page);
+                CurrentApplication.MainPage = new NavigationPage(page)
+                {
+                    BarBackgroundColor = Color.Black
+                };
             }
             await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
         }
