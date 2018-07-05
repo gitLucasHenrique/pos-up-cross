@@ -1,5 +1,7 @@
 # pos-up-cross
 
+Sugoi Series (Séries Sensacionais)
+
  ● Instruções especiais para execução, se houver
  Não há nenhuma instrução especial a ser executada, apenas garanta que as bibliotecas estejam instaladas corretamente de acordo com as versões descritas abaixo.
  
